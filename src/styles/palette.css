@@ -1,0 +1,85 @@
+/* Palette and swatch styles */
+.scheme {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.color-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  border: 1.5px solid #e5e7eb;
+  margin-bottom: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.hex {
+  font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+  font-size: 1rem;
+  color: #222;
+  background: #f3f4f6;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid #e5e7eb;
+  user-select: all;
+}
+.hex.copied {
+  background: #d1f7c4;
+  color: #217a3c;
+  border-color: #b6e7b0;
+}
+
+#export-css {
+  margin: 24px auto 0 auto;
+  display: block;
+  background: #fff;
+  color: #222;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 14px 24px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s, color 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+#export-css:hover, #export-css:focus {
+  background: #3498db;
+  color: #fff;
+  border-color: #3498db;
+}
+
+@media (max-width: 600px) {
+  .scheme {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .color-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+  }
+  .hex {
+    font-size: 0.92rem;
+    padding: 3px 8px;
+  }
+  #export-css {
+    padding: 10px 10vw;
+    font-size: 0.98rem;
+    margin-top: 18px;
+  }
+}
