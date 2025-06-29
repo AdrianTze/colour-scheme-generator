@@ -239,3 +239,63 @@ body {
   .footer-note a:hover {
     text-decoration: underline;
   }
+
+@media (max-width: 600px) {
+    .navbar-inner {
+      flex-direction: column;
+      height: auto;
+      padding: 0 12px;
+      gap: 8px;
+    }
+    .navbar-logo {
+      margin: 12px 0 4px 0;
+      font-size: 1.1rem;
+    }
+    .navbar-links {
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 98vw;
+      padding: 24px 6vw 18px 6vw;
+      border-radius: 14px;
+    }
+    .hero-bg {
+      padding-top: 100px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    h1 {
+      font-size: 1.3rem;
+    }
+    .subtitle {
+      font-size: 1rem;
+    }
+    form {
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .scheme {
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .color-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+    }
+    .hex {
+      font-size: 0.92rem;
+      padding: 3px 8px;
+    }
+    #export-css {
+      padding: 10px 10vw;
+      font-size: 0.98rem;
+      margin-top: 18px;
+    }
+    footer {
+      font-size: 0.92rem;
+      margin-top: 18px;
+    }
+  }
