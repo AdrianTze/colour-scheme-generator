@@ -21,23 +21,45 @@ document
 function displayScheme(colors) {
   const schemeDiv = document.getElementById("scheme");
   schemeDiv.innerHTML = "";
-  colors.forEach((color) => {
-    const swatch = document.createElement("div");
-    swatch.className = "swatch";
-    const colorBox = document.createElement("div");
-    colorBox.className = "color-box";
-    colorBox.style.background = color.hex.value;
-    const hex = document.createElement("span");
-    hex.className = "hex";
-    hex.textContent = color.hex.value;
-    hex.title = "Click to copy";
-    hex.addEventListener("click", function () {
-      copyToClipboard(color.hex.value, hex);
+  const topRowCount = Math.ceil(colors.length / 2);
+  const bottomRowCount = colors.length - topRowCount;
+  if (colors.length > 1) {
+    const topRow = document.createElement("div");
+    topRow.className = "swatch-row top-row flex justify-center";
+    const bottomRow = document.createElement("div");
+    bottomRow.className = "swatch-row bottom-row flex justify-center";
+    for (let i = 0; i < topRowCount; i++) {
+      topRow.appendChild(createSwatch(colors[i]));
+    }
+    for (let i = topRowCount; i < colors.length; i++) {
+      bottomRow.appendChild(createSwatch(colors[i]));
+    }
+    schemeDiv.appendChild(topRow);
+    if (bottomRowCount > 0) schemeDiv.appendChild(bottomRow);
+  } else {
+    // fallback: display all in a row
+    colors.forEach((color) => {
+      schemeDiv.appendChild(createSwatch(color));
     });
-    swatch.appendChild(colorBox);
-    swatch.appendChild(hex);
-    schemeDiv.appendChild(swatch);
+  }
+}
+
+function createSwatch(color) {
+  const swatch = document.createElement("div");
+  swatch.className = "swatch";
+  const colorBox = document.createElement("div");
+  colorBox.className = "color-box";
+  colorBox.style.background = color.hex.value;
+  const hex = document.createElement("span");
+  hex.className = "hex";
+  hex.textContent = color.hex.value;
+  hex.title = "Click to copy";
+  hex.addEventListener("click", function () {
+    copyToClipboard(color.hex.value, hex);
   });
+  swatch.appendChild(colorBox);
+  swatch.appendChild(hex);
+  return swatch;
 }
 
 function copyToClipboard(text, el) {
