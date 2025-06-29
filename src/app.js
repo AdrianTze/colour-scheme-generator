@@ -50,3 +50,25 @@ function copyToClipboard(text, el) {
     }, 900);
   });
 }
+
+function exportPaletteAsCSS(colors) {
+  const cssVars = colors
+    .map((color, i) => `  --color${i + 1}: ${color.hex.value};`)
+    .join("\n");
+  const css = `:root {\n${cssVars}\n}`;
+  navigator.clipboard.writeText(css).then(() => {
+    alert("CSS variables copied to clipboard!");
+  });
+}
+
+document.getElementById("export-css").addEventListener("click", function () {
+  const swatches = document.querySelectorAll(".swatch .hex");
+  if (swatches.length === 0) {
+    alert("Generate a palette first!");
+    return;
+  }
+  const colors = Array.from(swatches).map((el) => ({
+    hex: { value: el.textContent },
+  }));
+  exportPaletteAsCSS(colors);
+});

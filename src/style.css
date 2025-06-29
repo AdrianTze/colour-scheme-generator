@@ -97,3 +97,19 @@ button:hover {
   background: #d1f7c4;
   color: #217a3c;
 }
+
+#export-css {
+    margin: 20px auto 0 auto;
+    display: block;
+    background: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  #export-css:hover {
+    background: #219150;
+  }
