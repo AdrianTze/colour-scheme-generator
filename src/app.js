@@ -78,7 +78,7 @@ function exportPaletteAsCSS(colors) {
     .join("\n");
   const css = `:root {\n${cssVars}\n}`;
   navigator.clipboard.writeText(css).then(() => {
-    alert("CSS variables copied to clipboard!");
+    showToast("CSS variables copied to clipboard!", (type = "success"));
   });
 }
 
@@ -117,7 +117,9 @@ function showToast(message, type = "error") {
   toast.style.alignItems = "center";
   toast.style.gap = "8px";
   toast.style.cursor = "pointer";
-  toast.innerHTML = `<span class='toast-icon' aria-hidden='true'>&#9888;</span> <span>${message}</span>`;
+  toast.innerHTML = `<span class='toast-icon' aria-hidden='true'>${
+    type === "error" ? "⚠️" : "✅"
+  }</span> <span>${message}</span>`;
   toast.onclick = () => {
     if (container.contains(toast)) container.removeChild(toast);
     toastActive = false;
