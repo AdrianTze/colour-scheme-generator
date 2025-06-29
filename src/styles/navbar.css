@@ -28,6 +28,17 @@
   text-decoration: none;
 }
 
+.site-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  object-fit: cover;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
 .navbar-links {
   display: flex;
   gap: 24px;
